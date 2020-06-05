@@ -1,0 +1,447 @@
+/*ml12 -> margin-left: 12px;*/
+* {
+    box-sizing: border-box; /*??? ограничивает поле границами поля, т.е. общая ширина/высота с учетом поля ???*/
+    font-family: sans-serif; /*шрифт*/
+}
+.body {
+    background-color: #e5e5e5;
+}
+.header {
+    padding-top: 6px; /*отступ сверху внутри элемента, т.е. от верхнего края*/
+    padding-bottom: 6px;
+    background-color: #0050B3;
+}
+.header-block {
+    max-width: 1200px; /*ограничиваем блок по-ширине*/
+    margin: auto; /*выравниваем блок по-горизонтали*/
+    display: flex; /*располагаем элементы блока в строчку*/
+    align-items: center; /*выравниваем элементы по-вертикали*/
+    justify-content: space-between; /*располагаем элементы внутри блока по-краям*/
+}
+.search-input {
+    font-size: 14px; /*размер текста в поле поиска*/
+    line-height: 22px; /*высота строки поля поиска*/
+    width: 336px; /*фиксированная ширина поля поиска (временная мера)*/
+    /*width: 100%; _временно закомментили_ растягиваем поле поиска на максимум*/
+    /*min-width: 336px; _временно закомментили_ ограничиваем максимальную ширину поля поиска*/
+    background: #ffffff; /*фоновый цвет поля поиска*/
+    border: 1px solid #D9D9D9; /*рамка*/
+    border-radius: 4px; /*скругление углов рамки*/
+    /*отступы внутри элемента можно записать иначе: padding: 5px 30px 5px 12px*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    padding-right: 30px;
+    background-image: url(../img/search-icon.svg); /*вставляем картинку в качестве фона*/
+    background-repeat: no-repeat; /*отключаем повторение изображения*/
+    background-position: right 12px center; /*располагаем фоновое изображение справа (отступ от края справа 12px) по-центру*/
+}
+.navigation {
+    display: flex;
+    align-items: center;
+}
+.user {
+    display: flex;
+    align-items: center;
+}
+.user-avatar {
+    margin-right: 8px;
+}
+.user-name {
+    font-weight: 600; /*толщина шрифта*/
+    font-size: 14px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+.navigation-panel {
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+}
+.navigation-link {
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    text-decoration: none; /*в нашем случае убираем подчеркивание*/
+    font-size: 14px;
+    line-height: 22px;
+    width: 600; /*важно, что это не px*/
+    margin-left: 12px; /*отступ для каждой ссылки*/
+}
+.navigation-link:before { /*псевдоэлемент; в нашем случае вставляется перед ссылкой*/
+    content: "";
+    width: 1px;
+    height: 16px;
+    background: #003A8C;
+    margin-right: 12px;
+}
+.navigation-link:last-child:after { /*псевдоэлемент; в нашем случае вставляется после последней ссылки*/
+    content: "";
+    width: 1px;
+    height: 16px;
+    background: #003A8C;
+    margin-left: 12px;
+}
+.icons-panel {
+    display: flex;
+    align-items: center;
+}
+.icon-link {
+    display: flex;
+    align-items: center;
+    margin-left: 17px;
+}
+.header-icon {
+    fill: #002766; /*перед этим необходимо удалить fill в html из кода картинки*/
+}
+.header-icon:hover { /*при наведении указателя мыши*/
+    fill: #ffffff;
+}
+.icon-link.secondlast:before { /*псевдоэлемент; в нашем случае вставляется перед последней ссылкой*/
+    content: "";
+    width: 1px;
+    height: 16px;
+    background: #003A8C;
+    margin-right: 12px;
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex; /*чтобы элементы внури контейнера выстраивались в линию*/
+    justify-content: space-between;
+}
+.menu-sidebar {
+    margin-top: 18px;
+    width: 192px;
+    margin-right: 12px;
+}
+.menu-sidebar .user {
+    padding-left: 10px;
+}
+.menu-sidebar .user-avatar { /*обращение к user-avatar внутри menu-sidebar*/
+    width: 24px;
+    height: 24px;
+}
+.menu-sidebar .user-name {
+    color: #262626;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: normal;
+}
+.nav-group {
+    display: flex;
+    justify-content: center; /*элементы располагаются внутри блока по-центру*/
+    flex-direction: column; /*расположение элементов в колонку*/
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+.nav-link {
+    border-radius: 4px;
+    padding: 4px 8px; /*задаем отступы*/
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #595959;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: normal;
+}
+.nav-link.active { /*в html-документе в первой ссылке nav-link мы дописали active (в название класса)*/
+    background-color: #ffffff;
+    color: #262626;
+}
+.nav-text {
+    margin-left: 8px;
+}
+.nav-title {
+    font-size: 12px;
+    line-height: 20px;
+    color: #262626;
+    width: 600;
+    padding-left: 10px;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+.main-feed {
+    margin-top: 18px;
+    max-width: 588px;
+    flex-grow: 1; /*Если для всех элементов flex-grow установлено значение 1, оставшееся пространство в контейнере будет равномерно распределено между всеми дочерними элементами.*/
+}
+.create-post {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    overflow: hidden; /*скрываем все, что выходит за границы*/
+}
+.create-post-header {
+    padding: 9px 16px; /*сверху, снизу 9px; 16px - по-краям*/
+    background: #F5F5F5;
+}
+.create-post-title {
+    margin: 0;
+    font-size: 14px;
+    line-height: 22px;
+    color: #595959;
+    font-weight: 600;
+}
+.create-post-body {
+    padding-top: 16px;
+    padding-bottom: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    align-items: flex-start;
+}
+.create-post-input {
+    padding-top: 8px;
+    width: 100%;
+    color: #8C8C8C;
+}
+.tag {
+    background: #F5F5F5;
+    border-radius: 48px;
+    border: none; /*убираем видимую границу*/
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 12px;
+    padding-right: 12px;    
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+.tag-icon {
+    margin-right: 8px;
+}
+.create-post-footer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /*если все не помещается в одной строке, то переносится на новую*/
+    padding: 0 16px 16px 16px;
+}
+.create-post-footer:before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #e8e8e8;
+    margin-bottom: 16px;
+}
+.button-title {
+    color: #595959;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 600;
+}
+.nav-link.last {
+    margin-top: 12px;
+}
+.nav-link.last .nav-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: #1890FF;
+}
+.post {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    margin: 16px 0px; /*сверху и снизу отступ 16px, по-краям 0px*/
+    padding: 16px; /*внутри элемента post отступ от крёв 16px*/
+}
+.post-author {
+    width: 100%; /*это делается для того, чтобы имя автора занимало всю ширину. Таким образом будет срабатывать свойство flex-wrap: wrap в .post-header .user*/
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 600;
+    color: #0050B3;
+    text-decoration: none;
+}
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.post-header .user-avatar {
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+}
+.post-header-button {
+    border: none;
+    background-color: #ffffff;
+}
+.post-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+.post-time {
+    font-size: 14px;
+    line-height: 22px;
+    color: #8C8C8C;
+    font-weight: 600;
+}
+.post-time:after {
+    display: inline-block; /*если это не сделать, то элемент останется строчным. Его не будет видно. Поэтому делаем его блочным*/
+    content: "";
+    width: 4px;
+    height: 4px;
+    background: #BFBFBF;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 50%; /*скругляем края элемента, чтобы получился круг*/
+    vertical-align: middle; /*выравниваем элемент по-вертикали по-середине*/
+}
+.post-info-time {
+    display: flex;
+    align-items: center;
+}
+.post-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: #595959;
+    font-weight: normal;
+    margin-bottom: 16px;
+}
+.post-text a { /*для ссылок внутри класса post-text*/
+    color: #096DD9;
+    text-decoration: none;
+}
+.post-image {
+    border: 1px solid #BFBFBF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+}
+.likes {
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+.likes-counter {
+    font-size: 14px;
+    line-height: 22px;
+    color: #595959;
+    font-weight: normal;
+    margin-left: 4px;
+}
+.post-footer {
+    display: flex;
+    justify-content: space-around; /*элементы равномерно располагаются по всему пространству*/
+    flex-wrap: wrap;
+}
+.post-button {
+    background-color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+.post-button-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: #595959;
+    font-weight: 400;
+    margin-left: 8px;
+}
+.post-footer:before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #e8e8e8;
+    margin-bottom: 16px;
+}
+.right-sidebar {
+    width: 384px;
+}
+.stories {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    margin-top: 16px;
+    padding: 16px;
+    padding-left: 24px;
+    margin-left: 24px;
+}
+.stories-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.stories-title {
+    margin: 0;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 600;
+    color: #262626;
+}
+.stories-buttons {  
+    display: flex;
+    align-items: center;
+}
+.story-button-link {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #0050B3;
+    text-decoration: none;
+}
+.story-button-link:first-child:after {
+    content: "";
+    width: 4px;
+    height: 4px;
+    background-color: #bfbfbf;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 8px;
+    vertical-align: middle;
+}
+.stories-icon {
+    vertical-align: middle;
+}
+.story-item-add, .story-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 16px;
+}
+.story-item {
+    display: flex;
+    align-items: center;
+}
+.story-image {
+    width: 48px;
+    height: 48px;
+    background: #f5f5f5;
+    border: 1px solid #D9D9D9;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #1890FF;
+    justify-content: center;
+    margin-right: 12px;
+}
+.story-title {
+    font-size: 14px;
+    line-height: 22px;
+    color: #0050B3;
+    width: 100%;
+    font-weight: 600;
+    display: block;
+}
+.story-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: #8C8C8C;
+    font-weight: normal;
+    width: 100%;
+    word-wrap: break-word;
+}
+.figma {
+    background-image: url(../img/figma-avatar.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
